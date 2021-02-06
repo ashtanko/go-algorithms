@@ -22,4 +22,12 @@ func TestTwoSum(t *testing.T) {
 		expected := []int{1, 2}
 		assert.Equal(t, result, expected)
 	})
+
+	t.Run("should work correctly on case []", func(t *testing.T) {
+		var nums []int
+		target := 0
+		result := twoSum(nums, target)
+		expected := []int{}
+		assert.Equal(t, result, expected)
+	})
 }
