@@ -7,8 +7,8 @@ import (
 
 var (
 	tests = []struct {
-		s    string
-		want bool
+		input    string
+		expected bool
 	}{
 		{"", false},
 		{"(((((())))))", true},
@@ -29,12 +29,10 @@ func TestValidParentheses(t *testing.T) {
 	for _, fn := range task {
 		for _, test := range tests {
 			test := test
-			t.Run(fmt.Sprint(test.s, test.want), func(t *testing.T) {
+			t.Run(fmt.Sprint(test.input, test.expected), func(t *testing.T) {
 				t.Parallel()
-				if have := fn(test.s); have != test.want {
-					t.Errorf(`
-want: %+v
-have: %+v`, test.want, have)
+				if have := fn(test.input); have != test.expected {
+					t.Errorf(`input: %+vexpected: %+v`, test.expected, have)
 				}
 			})
 		}
