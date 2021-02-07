@@ -20,7 +20,7 @@ var (
 	task = []func(candies []int, extraCandies int) []bool{kidsWithCandies}
 )
 
-func TestRemoveVowels(t *testing.T) {
+func TestKidsWithCandies(t *testing.T) {
 	for _, fn := range task {
 		for _, test := range tests {
 			test := test
