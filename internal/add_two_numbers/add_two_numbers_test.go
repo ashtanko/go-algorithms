@@ -1,6 +1,7 @@
 package add_two_numbers
 
 import (
+	"fmt"
 	. "github.com/ashtanko/go-algorithms/ds/linked_list"
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
@@ -32,8 +33,10 @@ func TestAddTwoNumbers(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		actual := addTwoNumbers(FromSlice(testCase.gotList1), FromSlice(testCase.gotList2)).ToSlice()
-
-		utils.Checkf(t, is.DeepEqual(actual, testCase.want), testCase)
+		name := fmt.Sprintf("%d", testCase.gotList1)
+		t.Run(name, func(t *testing.T) {
+			actual := addTwoNumbers(FromSlice(testCase.gotList1), FromSlice(testCase.gotList2)).ToSlice()
+			utils.Checkf(t, is.DeepEqual(actual, testCase.want), testCase)
+		})
 	}
 }
