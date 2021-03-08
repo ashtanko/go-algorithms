@@ -72,8 +72,6 @@ func TestDfs(t *testing.T) {
 			},
 		},
 	}
-
-	ans := 0
-	Dfs(tree, 7, 15, &ans)
-	assert.Equal(t, 32, ans)
+	actual := Dfs(tree, 7, 15)
+	assert.Equal(t, 32, actual)
 }
