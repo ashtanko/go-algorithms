@@ -57,6 +57,22 @@ func Bfs(nodes []*TreeNode) ([]int, []*TreeNode) {
 	return values, next
 }
 
+// Dfs is an algorithm for traversing or searching tree or graph data structures.
+func Dfs(node *TreeNode, l int, r int, ans *int) {
+	if node != nil {
+		if l <= node.Val && node.Val <= r {
+			*ans += node.Val
+		}
+		if l < node.Val {
+			Dfs(node.Left, l, r, ans)
+		}
+
+		if node.Val < r {
+			Dfs(node.Right, l, r, ans)
+		}
+	}
+}
+
 func (t *TreeNode) Diagram(top string, root string, bottom string) string {
 	if t == nil {
 		return fmt.Sprintf("%snull\n", root)

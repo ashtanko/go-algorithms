@@ -3,6 +3,7 @@ package tree
 import (
 	"fmt"
 	"github.com/ashtanko/go-algorithms/utils"
+	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"testing"
 )
@@ -50,4 +51,29 @@ func TestTreeSize(t *testing.T) {
 			utils.Checkf(t, is.Equal(tc.expected, actual), tc)
 		})
 	}
+}
+
+func TestDfs(t *testing.T) {
+	tree := &TreeNode{
+		Val: 10,
+		Left: &TreeNode{
+			Val: 5,
+			Left: &TreeNode{
+				Val: 3,
+			},
+			Right: &TreeNode{
+				Val: 7,
+			},
+		},
+		Right: &TreeNode{
+			Val: 15,
+			Right: &TreeNode{
+				Val: 18,
+			},
+		},
+	}
+
+	ans := 0
+	Dfs(tree, 7, 15, &ans)
+	assert.Equal(t, 32, ans)
 }
