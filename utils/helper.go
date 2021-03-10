@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"gotest.tools/v3/assert"
+	"math/rand"
 	"testing"
 )
 
@@ -24,4 +25,12 @@ func Max(x, y int) int {
 	} else {
 		return y
 	}
+}
+
+func GenerateRandArray(n int) []float64 {
+	arr := make([]float64, n)
+	for i := 0; i < cap(arr); i++ {
+		arr[i] = rand.Float64() * float64(n)
+	}
+	return arr
 }
