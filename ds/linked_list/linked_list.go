@@ -48,6 +48,22 @@ func (list *ListNode) ToSlice() []int {
 	return slice
 }
 
+func (L *LinkedList) ToSlice() []interface{} {
+	curr := L.head
+	if L == nil {
+		return []interface{}{}
+	}
+
+	var result []interface{}
+
+	for curr != nil {
+		result = append(result, curr.key)
+		curr = curr.next
+	}
+
+	return result
+}
+
 func (L *LinkedList) Insert(key interface{}) {
 	list := &Node{
 		next: L.head,
@@ -64,6 +80,10 @@ func (L *LinkedList) Insert(key interface{}) {
 		l = l.next
 	}
 	L.tail = l
+}
+
+func (L *LinkedList) Delete(key interface{}) {
+
 }
 
 func (L *LinkedList) Display() string {

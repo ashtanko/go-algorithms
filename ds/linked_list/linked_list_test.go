@@ -107,3 +107,25 @@ func TestLinkedList_Reverse(t *testing.T) {
 	actual := list.Display()
 	assert.Equal(t, expected, actual)
 }
+
+func TestLinkedList_ToSlice(t *testing.T) {
+	list := LinkedList{}
+	list.Insert(1)
+	list.Insert(2)
+	list.Insert(3)
+	actual := list.ToSlice()
+	expected := []interface{}{1, 2, 3}
+	utils.Checkf(t, is.DeepEqual(actual, expected), list)
+}
+
+func TestLinkedList_Delete(t *testing.T) {
+	list := LinkedList{}
+	list.Insert(4)
+	list.Insert(8)
+	list.Insert(15)
+	list.Insert(16)
+	list.Insert(23)
+	list.Insert(42)
+	list.Delete(16)
+	assert.Equal(t, 6, list.Size())
+}
