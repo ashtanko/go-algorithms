@@ -109,13 +109,22 @@ func TestLinkedList_Reverse(t *testing.T) {
 }
 
 func TestLinkedList_ToSlice(t *testing.T) {
-	list := LinkedList{}
-	list.Insert(1)
-	list.Insert(2)
-	list.Insert(3)
-	actual := list.ToSlice()
-	expected := []interface{}{1, 2, 3}
-	utils.Checkf(t, is.DeepEqual(actual, expected), list)
+	t.Run("when empty", func(t *testing.T) {
+		list := LinkedList{}
+		actual := list.ToSlice()
+		var expected []interface{}
+		utils.Checkf(t, is.DeepEqual(actual, expected), list)
+	})
+
+	t.Run("when not empty", func(t *testing.T) {
+		list := LinkedList{}
+		list.Insert(1)
+		list.Insert(2)
+		list.Insert(3)
+		actual := list.ToSlice()
+		expected := []interface{}{3, 2, 1} // TODO Refactor to 1,2,3 output
+		utils.Checkf(t, is.DeepEqual(actual, expected), list)
+	})
 }
 
 func TestLinkedList_Delete(t *testing.T) {
