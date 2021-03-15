@@ -14,6 +14,10 @@ func TestLevelOrder(t *testing.T) {
 		expected [][]int
 	}{
 		{
+			tree:     nil,
+			expected: nil,
+		},
+		{
 			tree:     &tree.TreeNode{},
 			expected: [][]int{{0}},
 		},

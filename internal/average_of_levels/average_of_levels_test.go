@@ -14,6 +14,10 @@ func TestAverageOfLevels(t *testing.T) {
 		expected []float64
 	}{
 		{
+			tree:     nil,
+			expected: nil,
+		},
+		{
 			tree: &tree.TreeNode{
 				Val: 3,
 				Left: &tree.TreeNode{
