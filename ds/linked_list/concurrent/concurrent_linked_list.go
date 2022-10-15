@@ -64,10 +64,7 @@ func (cll *ConcurrentLinkedList) Insert(i int, t interface{}) error {
 func (cll *ConcurrentLinkedList) IsEmpty() bool {
 	cll.lock.RLock()
 	defer cll.lock.RUnlock()
-	if cll.head == nil {
-		return true
-	}
-	return false
+	return cll.head == nil
 }
 
 func (cll *ConcurrentLinkedList) Size() int {

@@ -100,8 +100,8 @@ func TestAddOneRowToTree(t *testing.T) {
 		name := fmt.Sprintf("root: %d v: %d d: %d", tc.root.List(), tc.v, tc.d)
 		t.Run(name, func(t *testing.T) {
 			actual := addOneRow(tc.root, tc.v, tc.d)
-			fmt.Println("  actual: ",actual.List())
-			fmt.Println("expected: ",tc.expected.List())
+			fmt.Println("  actual: ", actual.List())
+			fmt.Println("expected: ", tc.expected.List())
 			utils.Checkf(t, is.DeepEqual(tc.expected.List(), actual.List()), tc)
 		})
 	}
