@@ -27,7 +27,9 @@ jobs:
       - name: Test
         run: go test -v -race -timeout 30s ./...
 
-      - name: Test Covarage
+      - name: Test Covarage Stat
         run: go test -cover -timeout 30s ./...
+      - name: Run coverage
+        run: go test -race -coverprofile=coverage.txt -covermode=atomic
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
