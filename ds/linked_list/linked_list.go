@@ -49,10 +49,11 @@ func (list *ListNode) ToSlice() []int {
 }
 
 func (L *LinkedList) ToSlice() []interface{} {
-	curr := L.head
 	if L == nil {
 		return []interface{}{}
 	}
+
+	curr := L.head
 
 	var result []interface{}
 

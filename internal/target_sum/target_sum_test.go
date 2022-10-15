@@ -26,60 +26,42 @@ func TestTargetSum(t *testing.T) {
 		},
 	}
 
-	var backtracking TargetSum
-	backtracking = &TargetSumValueBacktracking{
-		TargetSumValueBase: &TargetSumValueBase{},
-	}
-
-	var recursive TargetSum
-	recursive = &TargetSumValueRecursive{
-		TargetSumValueBase: &TargetSumValueBase{},
-	}
-
-	var memoization TargetSum
-	memoization = &TargetSumValueMemoization{
-		TargetSumValueBase: &TargetSumValueBase{},
-	}
-
-	var targetSum2DDP TargetSum
-	targetSum2DDP = &TargetSumValue2DDP{
-		TargetSumValueBase: &TargetSumValueBase{},
-	}
-
-	var targetSumValueDPLinearSpace TargetSum
-	targetSumValueDPLinearSpace = &TargetSumValueDPLinearSpace{
-		TargetSumValueBase: &TargetSumValueBase{},
-	}
-
-	var targetSumValueDPWithMaps TargetSum
-	targetSumValueDPWithMaps = &TargetSumValueDPWithMaps{
-		TargetSumValueBase: &TargetSumValueBase{},
-	}
-
 	implementations := []utils.Pair[string, TargetSum]{
 		{
-			Left:  "backtracking",
-			Right: backtracking,
+			Left: "backtracking",
+			Right: &TargetSumValueBacktracking{
+				TargetSumValueBase: &TargetSumValueBase{},
+			},
 		},
 		{
-			Left:  "recursive",
-			Right: recursive,
+			Left: "recursive",
+			Right: &TargetSumValueRecursive{
+				TargetSumValueBase: &TargetSumValueBase{},
+			},
 		},
 		{
-			Left:  "memoization",
-			Right: memoization,
+			Left: "memoization",
+			Right: &TargetSumValueMemoization{
+				TargetSumValueBase: &TargetSumValueBase{},
+			},
 		},
 		{
-			Left:  "targetSumValueDPWithMaps",
-			Right: targetSumValueDPWithMaps,
+			Left: "targetSumValueDPWithMaps",
+			Right: &TargetSumValueDPWithMaps{
+				TargetSumValueBase: &TargetSumValueBase{},
+			},
 		},
 		{
-			Left:  "targetSum2DDP",
-			Right: targetSum2DDP,
+			Left: "targetSum2DDP",
+			Right: &TargetSumValue2DDP{
+				TargetSumValueBase: &TargetSumValueBase{},
+			},
 		},
 		{
-			Left:  "targetSumValueDPLinearSpace",
-			Right: targetSumValueDPLinearSpace,
+			Left: "targetSumValueDPLinearSpace",
+			Right: &TargetSumValueDPLinearSpace{
+				TargetSumValueBase: &TargetSumValueBase{},
+			},
 		},
 	}
 
