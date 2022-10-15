@@ -29,3 +29,5 @@ jobs:
 
       - name: Test Covarage
         run: go test -cover -timeout 30s ./...
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
