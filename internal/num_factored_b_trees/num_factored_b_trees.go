@@ -7,7 +7,7 @@ import (
 
 func numFactoredBinaryTrees(arr []int) int {
 	// map
-	// key: root node value
+	// key: root tree_node value
 	// value: number of binary tree
 	dp := make(map[int]int)
 
@@ -16,14 +16,14 @@ func numFactoredBinaryTrees(arr []int) int {
 	// keep A sorted in ascending order
 	sort.Ints(arr)
 
-	// scan each possible root node value
+	// scan each possible root tree_node value
 	for _, curNum := range arr {
 
 		upperbound := sort.Search(len(arr), func(i int) bool { return arr[i] > int(math.Sqrt(float64(curNum))) })
 
 		// Case 1: cur_num as root with child nodes
 
-		// scan each potential child node value
+		// scan each potential child tree_node value
 		for j := 0; j < upperbound; j += 1 {
 
 			factor := arr[j]
