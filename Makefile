@@ -6,3 +6,6 @@ test:
 
 lint:
 	golangci-lint run
+
+lines:
+	find . -name '*.go' | xargs wc -l
