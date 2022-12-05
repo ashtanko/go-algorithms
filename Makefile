@@ -1,10 +1,10 @@
-.PHONY: test
+.PHONY: test lint check lines
 test:
 		go test -v -race -timeout 30s ./...
 
 .DEFAULT_GOAL := test
 
-lint:
+lint check:
 	golangci-lint run
 
 lines:
