@@ -33,6 +33,32 @@ func TestMin(t *testing.T) {
 	}
 }
 
+func TestMax(t *testing.T) {
+	testCases := []struct {
+		x, y     int
+		expected int
+	}{
+		{
+			x:        3,
+			y:        7,
+			expected: 7,
+		},
+		{
+			x:        -1,
+			y:        -7,
+			expected: -1,
+		},
+	}
+
+	for _, tc := range testCases {
+		name := fmt.Sprintf("x: %d y: %d max=> %d", tc.x, tc.y, tc.expected)
+		t.Run(name, func(t *testing.T) {
+			actual := Max(tc.x, tc.y)
+			Checkf(t, is.Equal(tc.expected, actual), tc)
+		})
+	}
+}
+
 func TestGenerateRandArray(t *testing.T) {
 	arr := GenerateRandArray(100)
 	assert.NotNil(t, arr)

@@ -40,6 +40,7 @@ func (t *TreeNode) Add(arr []int, i int) int {
 	return i
 }
 
+// Bfs Breadth-First Search
 func Bfs(nodes []*TreeNode) ([]int, []*TreeNode) {
 	var values []int
 	var next []*TreeNode

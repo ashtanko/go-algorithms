@@ -75,3 +75,40 @@ func TestDfs(t *testing.T) {
 	actual := Dfs(tree, 7, 15)
 	assert.Equal(t, 32, actual)
 }
+
+func TestBfs(t *testing.T) {
+	testCases := []struct {
+		nodes    []*TreeNode
+		expected []int
+	}{
+		{
+			[]*TreeNode{
+				{
+					Val: 0,
+				},
+			},
+			[]int{0},
+		},
+		{
+			[]*TreeNode{
+				{
+					Val: 0,
+					Left: &TreeNode{
+						Val: 1,
+					},
+					Right: &TreeNode{
+						Val: 2,
+					},
+				},
+			},
+			[]int{0},
+		},
+	}
+	for _, tc := range testCases {
+		name := fmt.Sprintf("e: %d", tc.expected)
+		t.Run(name, func(t *testing.T) {
+			level, _ := Bfs(tc.nodes)
+			assert.DeepEqual(t, tc.expected, level)
+		})
+	}
+}
