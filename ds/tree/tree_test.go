@@ -112,3 +112,46 @@ func TestBfs(t *testing.T) {
 		})
 	}
 }
+
+func TestDiagram(t *testing.T) {
+	var testCases = []struct {
+		tree     *TreeNode
+		expected string
+	}{
+		{
+			&TreeNode{
+				Val: 10,
+			},
+			"10\n",
+		},
+		{
+			&TreeNode{
+				Val: 0,
+				Left: &TreeNode{
+					Val: 1,
+				},
+			},
+			"┌──null\n0\n└──1\n",
+		},
+		{
+			&TreeNode{
+				Val: 0,
+				Left: &TreeNode{
+					Val: 1,
+				},
+				Right: &TreeNode{
+					Val: 2,
+				},
+			},
+			"┌──2\n0\n└──1\n",
+		},
+	}
+
+	for _, tc := range testCases {
+		name := fmt.Sprintf("%d %s", tc.tree.List(), tc.expected)
+		t.Run(name, func(t *testing.T) {
+			actual := tc.tree.Diagram("", "", "")
+			assert.DeepEqual(t, tc.expected, actual)
+		})
+	}
+}
