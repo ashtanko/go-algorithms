@@ -1,6 +1,6 @@
 .PHONY: test lint check lines
 test:
-		go test -v -race -timeout 30s ./...
+		go test -v -race -timeout 45s ./...
 
 .DEFAULT_GOAL := test
 
