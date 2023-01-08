@@ -1,31 +1,24 @@
 package sort_characters_by_frequency
 
-import "strings"
+import (
+	"sort"
+)
 
 func frequencySort(s string) string {
-	mp := make(map[byte]int)
-	for i := range s {
-		mp[s[i]]++
+	b := []byte(s)
+	freq := make([]int, 128)
+	for _, ch := range b {
+		freq[ch]++
 	}
 
-	bucket := make([][]byte, len(s)+1)
-	for i := 0; i < len(mp)+1; i++ {
-		bucket[i] = make([]byte, 0)
-	}
-	for k, freq := range mp {
-		bucket[freq] = append(bucket[freq], k)
-	}
-
-	var sb strings.Builder
-	for i := len(bucket) - 1; i >= 0; i-- {
-		if len(bucket[i]) != 0 {
-			for idx := 0; idx < len(bucket[i]); idx++ {
-				for pos := 0; pos < i; pos++ {
-					sb.WriteByte(bucket[i][idx])
-				}
-			}
+	sort.Slice(b, func(i, j int) bool {
+		freqI, freqJ := freq[b[i]], freq[b[j]]
+		if freqI != freqJ {
+			return freqI > freqJ
 		}
-	}
 
-	return sb.String()
+		return b[i] > b[j]
+	})
+
+	return string(b)
 }

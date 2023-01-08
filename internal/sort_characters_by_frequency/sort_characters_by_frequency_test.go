@@ -22,7 +22,7 @@ func TestFrequencySort(t *testing.T) {
 		},
 		{
 			s:        "Aabb",
-			expected: "bbAa",
+			expected: "bbaA",
 		},
 	}
 
