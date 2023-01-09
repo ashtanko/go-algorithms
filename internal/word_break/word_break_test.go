@@ -77,7 +77,7 @@ func TestWordBreak(t *testing.T) {
 
 	for _, tc := range testCases {
 		for _, i := range tc.input {
-			name := fmt.Sprintf("%s %s", i.s, tc.strategyName)
+			name := fmt.Sprintf("%s %s", tc.strategyName, i.s)
 			t.Run(name, func(t *testing.T) {
 				actual := tc.strategy(i.s, i.wordDict)
 				utils.Checkf(t, is.DeepEqual(i.expected, actual), tc)
