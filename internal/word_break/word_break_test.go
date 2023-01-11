@@ -54,29 +54,25 @@ func TestWordBreak(t *testing.T) {
 	}
 
 	testCases := []struct {
-		input        []testCase
 		strategy     func(string, []string) bool
 		strategyName string
 	}{
 		{
-			input:        inputData,
 			strategy:     wordBreakTopDown,
 			strategyName: "top down",
 		},
 		{
-			input:        inputData,
 			strategy:     wordBreakMemo,
 			strategyName: "top down memo",
 		},
 		{
-			input:        inputData,
 			strategy:     wordBreak1D,
 			strategyName: "DP 1D",
 		},
 	}
 
 	for _, tc := range testCases {
-		for _, i := range tc.input {
+		for _, i := range inputData {
 			name := fmt.Sprintf("%s %s", tc.strategyName, i.s)
 			t.Run(name, func(t *testing.T) {
 				actual := tc.strategy(i.s, i.wordDict)
