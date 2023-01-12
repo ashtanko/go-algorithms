@@ -1,33 +1,33 @@
 package two_sum
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
+var (
+	tests = []struct {
+		nums     []int
+		target   int
+		expected []int
+	}{
+		{[]int{2, 7, 11, 15}, 9, []int{0, 1}},
+		{[]int{3, 2, 4}, 6, []int{1, 2}},
+		{[]int{}, 0, []int{}},
+	}
+
+	task = []func(nums []int, target int) []int{twoSum}
+)
+
 func TestTwoSum(t *testing.T) {
-
-	t.Run("should work correctly on case [2,7,11,15]", func(t *testing.T) {
-		nums := []int{2, 7, 11, 15}
-		target := 9
-		result := twoSum(nums, target)
-		expected := []int{0, 1}
-		assert.Equal(t, result, expected)
-	})
-
-	t.Run("should work correctly on case [3,2,4]", func(t *testing.T) {
-		nums := []int{3, 2, 4}
-		target := 6
-		result := twoSum(nums, target)
-		expected := []int{1, 2}
-		assert.Equal(t, result, expected)
-	})
-
-	t.Run("should work correctly on case []", func(t *testing.T) {
-		var nums []int
-		target := 0
-		result := twoSum(nums, target)
-		expected := []int{}
-		assert.Equal(t, result, expected)
-	})
+	for _, fn := range task {
+		for _, test := range tests {
+			t.Run(fmt.Sprint(test.nums, test.expected), func(t *testing.T) {
+				if have := fn(test.nums, test.target); !assert.Equal(t, have, test.expected) {
+					t.Errorf(`input: %+vexpected: %+v`, test.expected, have)
+				}
+			})
+		}
+	}
 }
