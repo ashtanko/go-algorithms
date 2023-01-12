@@ -23,7 +23,6 @@ func TestInsertInterval(t *testing.T) {
 		for _, test := range tests {
 			test := test
 			t.Run(fmt.Sprint(test.intervals, test.expected), func(t *testing.T) {
-				t.Parallel()
 				if have := fn(test.intervals, test.newInterval); !reflect.DeepEqual(have, test.expected) {
 					t.Errorf(`input: %+v expected: %+v`, test.expected, have)
 				}

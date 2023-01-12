@@ -47,7 +47,6 @@ func TestGetPermutation(t *testing.T) {
 		for _, test := range tests {
 			testCase := fmt.Sprintf("%s %d %d", fn.name, test.matrix, test.expected)
 			t.Run(testCase, func(t *testing.T) {
-				t.Parallel()
 				if have := fn.task(test.matrix); have != test.expected {
 					t.Errorf(`input: %+vexpected: %+v`, test.expected, have)
 				}

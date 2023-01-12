@@ -24,7 +24,6 @@ func TestGetPermutation(t *testing.T) {
 		for _, test := range tests {
 			test := test
 			t.Run(fmt.Sprint(test.n, test.expected), func(t *testing.T) {
-				t.Parallel()
 				if have := fn(test.n, test.k); have != test.expected {
 					t.Errorf(`input: %+vexpected: %+v`, test.expected, have)
 				}

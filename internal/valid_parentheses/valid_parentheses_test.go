@@ -30,7 +30,6 @@ func TestValidParentheses(t *testing.T) {
 		for _, test := range tests {
 			test := test
 			t.Run(fmt.Sprint(test.input, test.expected), func(t *testing.T) {
-				t.Parallel()
 				if have := fn(test.input); have != test.expected {
 					t.Errorf(`input: %+vexpected: %+v`, test.expected, have)
 				}

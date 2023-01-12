@@ -7,8 +7,8 @@ import (
 )
 
 type strategy struct {
-	task func(m int, n int) int
-	name string
+	taskStrategy func(m int, n int) int
+	name         string
 }
 
 var (
@@ -29,19 +29,18 @@ var (
 		},
 	}
 
-	task = []strategy{
+	tasks = []strategy{
 		{uniquePaths, "unique paths"},
-		{uniquePathsSimple, "unique paths simple"},
+		{uniquePathsSimple, "simple"},
 	}
 )
 
 func TestUniquePaths(t *testing.T) {
-	for _, fn := range task {
+	for _, task := range tasks {
 		for _, test := range tests {
-			testCaseName := fmt.Sprintf("%s input: %d expected: %d", fn.name, test.m, test.expected)
+			testCaseName := fmt.Sprintf("%s input: %d expected: %d", task.name, test.m, test.expected)
 			t.Run(testCaseName, func(t *testing.T) {
-				t.Parallel()
-				if have := fn.task(test.m, test.n); !reflect.DeepEqual(have, test.expected) {
+				if have := task.taskStrategy(test.m, test.n); !reflect.DeepEqual(have, test.expected) {
 					t.Errorf(`input: %+v expected: %+v`, test.expected, have)
 				}
 			})

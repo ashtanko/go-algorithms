@@ -25,7 +25,6 @@ func TestShuffleArray(t *testing.T) {
 		for _, test := range tests {
 			test := test
 			t.Run(fmt.Sprint(test.input, test.n), func(t *testing.T) {
-				t.Parallel()
 				if actual := fn(test.input, test.n); !reflect.DeepEqual(actual, test.expected) {
 					t.Errorf(`input: %+vexpected: %+v`, test.expected, actual)
 				}

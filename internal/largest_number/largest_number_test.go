@@ -28,7 +28,6 @@ func TestLargestNumber(t *testing.T) {
 		for _, test := range tests {
 			testCaseName := fmt.Sprintf("%s input: %d expected: %s", fn.name, test.nums, test.expected)
 			t.Run(testCaseName, func(t *testing.T) {
-				t.Parallel()
 				if have := fn.task(test.nums); have != test.expected {
 					t.Errorf(`input: %+vexpected: %+v`, test.expected, have)
 				}
