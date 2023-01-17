@@ -64,3 +64,66 @@ func TestGenerateRandArray(t *testing.T) {
 	assert.NotNil(t, arr)
 	assert.Equal(t, 100, len(arr))
 }
+
+func TestSameStringSlice(t *testing.T) {
+
+	t.Run("when empty slice, should be true", func(t *testing.T) {
+		actual := SameStringSlice([]string{}, []string{})
+		assert.True(t, actual)
+	})
+
+	t.Run("when slice with empty string, should be true", func(t *testing.T) {
+		actual := SameStringSlice([]string{""}, []string{""})
+		assert.True(t, actual)
+	})
+
+	t.Run("when slice with diff empty string, should be false", func(t *testing.T) {
+		actual := SameStringSlice([]string{""}, []string{})
+		assert.False(t, actual)
+	})
+
+	t.Run("when diff order, should be true", func(t *testing.T) {
+		actual := SameStringSlice([]string{"1", "2"}, []string{"2", "1"})
+		assert.True(t, actual)
+	})
+
+	t.Run("when diff value, should be false", func(t *testing.T) {
+		actual := SameStringSlice([]string{"1", "2"}, []string{"2", "3"})
+		assert.False(t, actual)
+	})
+}
+
+func TestSameString2DSlice(t *testing.T) {
+	t.Run("when empty, should be true", func(t *testing.T) {
+		actual := SameString2DSlice([][]string{}, [][]string{})
+		assert.True(t, actual)
+	})
+
+	t.Run("when diff order, should be true", func(t *testing.T) {
+		actual := SameString2DSlice([][]string{{"1", "2"}}, [][]string{{"2", "1"}})
+		assert.True(t, actual)
+	})
+
+	t.Run("when slice with empty string, should be true", func(t *testing.T) {
+		actual := SameString2DSlice([][]string{{""}}, [][]string{{""}})
+		assert.True(t, actual)
+	})
+
+	t.Run("when slice with diff empty string, should be false", func(t *testing.T) {
+		actual := SameString2DSlice([][]string{{""}}, [][]string{})
+		assert.False(t, actual)
+	})
+
+	t.Run("when diff value, should be false", func(t *testing.T) {
+		actual := SameString2DSlice([][]string{{"1", "2"}}, [][]string{{"2", "3"}})
+		assert.False(t, actual)
+	})
+
+	t.Run("when diff 2d order, should be true", func(t *testing.T) {
+		actual := SameString2DSlice(
+			[][]string{{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}},
+			[][]string{{"ate", "eat", "tea"}, {"nat", "tan"}, {"bat"}},
+		)
+		assert.True(t, actual)
+	})
+}
