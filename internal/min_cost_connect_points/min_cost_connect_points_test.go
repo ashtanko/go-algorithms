@@ -20,11 +20,11 @@ var (
 		},
 	}
 
-	task = []func(points [][]int) int{minCostConnectPointsUnionFind, minCostConnectPointsPrim}
+	tasks = []func(points [][]int) int{minCostConnectPointsUnionFind, minCostConnectPointsPrim}
 )
 
 func TestMinCostConnectPoints(t *testing.T) {
-	for _, fn := range task {
+	for _, fn := range tasks {
 		for _, test := range tests {
 			t.Run(fmt.Sprint(test.points, test.expected), func(t *testing.T) {
 				if have := fn(test.points); have != test.expected {

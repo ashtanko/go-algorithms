@@ -12,8 +12,13 @@ type fib struct {
 	expected int
 }
 
-func TestFibonacciNumber(t *testing.T) {
-	fibs := []fib{
+type strategy struct {
+	name     string
+	solution func(int) int
+}
+
+var (
+	tests = []fib{
 		{
 			n:        0,
 			expected: 0,
@@ -36,33 +41,33 @@ func TestFibonacciNumber(t *testing.T) {
 		},
 	}
 
-	testCases := []struct {
-		fibs    []fib
-		perform func(int) int
-	}{
+	tasks = []strategy{
 		{
-			fibs:    fibs,
-			perform: recursive,
+			"recursive",
+			recursive,
 		},
 		{
-			fibs:    fibs,
-			perform: bottomUp,
+			"bottom up",
+			bottomUp,
 		},
 		{
-			fibs:    fibs,
-			perform: topDown,
-		}, {
-			fibs:    fibs,
-			perform: fibMath,
+			"top down",
+			topDown,
+		},
+		{
+			"math",
+			fibMath,
 		},
 	}
+)
 
-	for _, tc := range testCases {
-		for _, f := range tc.fibs {
-			name := fmt.Sprintf("%d", f.n)
+func TestFibonacciNumber(t *testing.T) {
+	for _, fn := range tasks {
+		for _, f := range tests {
+			name := fmt.Sprintf("%s %d exp: %d", fn.name, f.n, f.expected)
 			t.Run(name, func(t *testing.T) {
-				actual := tc.perform(f.n)
-				utils.Checkf(t, is.Equal(f.expected, actual), tc)
+				actual := fn.solution(f.n)
+				utils.Checkf(t, is.Equal(f.expected, actual), t)
 			})
 		}
 	}
