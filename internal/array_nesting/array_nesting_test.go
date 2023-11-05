@@ -12,10 +12,10 @@ func TestArrayNesting(t *testing.T) {
 		nums     []int
 		expected int
 	}{
-		{
-			[]int{5, 4, 0, 3, 1, 6, 2},
-			4,
-		},
+		{[]int{5, 4, 0, 3, 1, 6, 2}, 4},
+		{[]int{0, 1, 2, 3, 4, 5, 6}, 1},
+		{[]int{0, 1, 2, 3, 4, 5, 5}, 1},
+		{[]int{0, 0, 0, 0, 0, 0, 0}, 1},
 	}
 
 	for _, tc := range testCases {

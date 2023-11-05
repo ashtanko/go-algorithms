@@ -1,35 +1,43 @@
 package array_permutations
 
+// permute generates all possible permutations of a given slice of integers.
 func permute(nums []int) [][]int {
-	backtracks := map[int]bool{}
-	var f func(int, int, []int, [][]int) [][]int
-	f = func(i, walked int, row []int, out [][]int) [][]int {
+	// Create a map to track visited elements during backtracking.
+	visited := make([]bool, len(nums))
 
-		if backtracks[i] {
-			return out
+	// Recursive helper function to generate permutations.
+	var backtrack func([]int)
+	var result [][]int
+
+	backtrack = func(currentPermutation []int) {
+		// If the current permutation is of the same length as nums, add it to the result.
+		if len(currentPermutation) == len(nums) {
+			result = append(result, append([]int{}, currentPermutation...))
+			return
 		}
 
-		backtracks[i] = true
+		for i := 0; i < len(nums); i++ {
+			if visited[i] {
+				continue
+			}
 
-		defer func() {
-			backtracks[i] = false
-		}()
+			// Mark the current element as visited.
+			visited[i] = true
 
-		row = append(row, nums[i])
-		walked++
-		if walked == len(nums) {
-			out = append(out, append([]int(nil), row...))
-			return out
+			// Add the current element to the current permutation.
+			currentPermutation = append(currentPermutation, nums[i])
+
+			// Recursively generate permutations with the current element included.
+			backtrack(currentPermutation)
+
+			// Remove the last element to backtrack.
+			currentPermutation = currentPermutation[:len(currentPermutation)-1]
+
+			// Mark the current element as unvisited for the next iteration.
+			visited[i] = false
 		}
-		for j := 0; j < len(nums); j++ {
-			out = f(j, walked, row, out)
-		}
-		return out
 	}
 
-	var out [][]int
-	for i := 0; i < len(nums); i++ {
-		out = f(i, 0, nil, out)
-	}
-	return out
+	backtrack([]int{})
+	return result
 }

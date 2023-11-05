@@ -1,43 +1,53 @@
 package advantage_shuffle
 
 import (
-	"github.com/ashtanko/go-algorithms/ds/deque"
 	"sort"
 )
 
+// advantageCount rearranges the elements of slice A to maximize the number of elements in A that are greater
+// than the corresponding elements in slice B. It returns a new slice with the rearranged elements of A.
 func advantageCount(A []int, B []int) []int {
-
+	// Create a sorted copy of slice A
 	sortedA := make([]int, len(A))
 	copy(sortedA, A)
+	sort.Ints(sortedA)
+
+	// Create a sorted copy of slice B
 	sortedB := make([]int, len(B))
 	copy(sortedB, B)
-	sort.Ints(sortedA)
 	sort.Ints(sortedB)
 
-	assigned := make(map[int]*deque.Deque)
-	for _, b := range B {
-		assigned[b] = deque.NewDeque()
-	}
+	// Create a map to store assigned elements for each element in B
+	assigned := make(map[int][]int)
 
-	remaining := deque.NewDeque()
-	j := 0
+	// Create a slice to store remaining elements from A
+	remaining := make([]int, 0)
+
+	j := 0 // Index for sortedB
+
+	// Iterate through the sortedA and assign elements to sortedB elements or store them as remaining
 	for _, a := range sortedA {
 		if a > sortedB[j] {
-			assigned[sortedB[j]].Inject(a)
+			assigned[sortedB[j]] = append(assigned[sortedB[j]], a)
 			j++
 		} else {
-			remaining.Inject(a)
+			remaining = append(remaining, a)
 		}
 	}
 
+	// Create a result slice to store the final rearranged elements
 	ans := make([]int, len(B))
-	for i := 0; i < len(B); i++ {
-		bDeq := assigned[B[i]]
-		if bDeq.Size() > 0 {
-			ans[i] = bDeq.Pop().(int)
+
+	// Populate the result slice by assigning assigned values first and then remaining values
+	for i, b := range B {
+		if len(assigned[b]) > 0 {
+			ans[i] = assigned[b][0]
+			assigned[b] = assigned[b][1:]
 		} else {
-			ans[i] = remaining.Pop().(int)
+			ans[i] = remaining[0]
+			remaining = remaining[1:]
 		}
 	}
+
 	return ans
 }
