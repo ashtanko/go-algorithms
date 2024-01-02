@@ -17,7 +17,7 @@ linters:
     - errcheck
     - typecheck
   run:
-    concurrency: 2
+    concurrency: 4
     modules-download-mode: vendor
 
     skip-dirs:

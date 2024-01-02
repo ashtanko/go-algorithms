@@ -41,11 +41,14 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
 
-      - name: Upload test coverage to Code Climate
+      - name: Code Climate Coverage Action
         uses: paambaati/codeclimate-action@v5.0.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
-          coverageCommand: go test -coverprofile=cover.out ./...
-          coverageLocations: cover.out:gocov
+          # Hack to resolve package:
+          # https://github.com/paambaati/codeclimate-action/issues/109#issuecomment-751311299
+          coverageCommand: make coverage
+          prefix: ${{ github.event.repository.name }}
+          coverageLocations: "${{github.workspace}}/c.out:gocov"
           debug: true
