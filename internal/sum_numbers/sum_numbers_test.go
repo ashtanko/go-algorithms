@@ -2,7 +2,7 @@ package sum_numbers
 
 import (
 	"fmt"
-	"github.com/ashtanko/go-algorithms/ds/tree"
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
 	"testing"
 )
 

@@ -1,7 +1,7 @@
 package add_one_row
 
 import (
-	"github.com/ashtanko/go-algorithms/ds/tree"
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
 )
 
 // Function to add a new row of nodes to a binary tree.

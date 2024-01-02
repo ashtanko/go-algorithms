@@ -2,7 +2,7 @@ package swap_pairs
 
 import (
 	"fmt"
-	. "github.com/ashtanko/go-algorithms/ds/linked_list"
+	. "github.com/ashtanko/go-algorithms/internal/ds/linked_list"
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
 	"testing"

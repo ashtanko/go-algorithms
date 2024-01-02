@@ -1,6 +1,8 @@
 package same_tree
 
-import "github.com/ashtanko/go-algorithms/ds/tree"
+import (
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
+)
 
 // 100. Same Tree
 // https://leetcode.com/problems/same-tree/description/

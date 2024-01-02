@@ -1,7 +1,7 @@
 package swap_nodes
 
 import (
-	"github.com/ashtanko/go-algorithms/ds/linked_list"
+	"github.com/ashtanko/go-algorithms/internal/ds/linked_list"
 )
 
 func swapNodes(head *linked_list.ListNode, k int) *linked_list.ListNode {

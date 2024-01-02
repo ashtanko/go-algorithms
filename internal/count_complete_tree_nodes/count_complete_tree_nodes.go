@@ -1,6 +1,8 @@
 package count_complete_tree_nodes
 
-import "github.com/ashtanko/go-algorithms/ds/tree"
+import (
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
+)
 
 func countNodes(root *tree.TreeNode) int {
 	cnt := 0

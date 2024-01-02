@@ -2,7 +2,7 @@ package inorder_traversal
 
 import (
 	"fmt"
-	"github.com/ashtanko/go-algorithms/ds/tree"
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
 	"testing"

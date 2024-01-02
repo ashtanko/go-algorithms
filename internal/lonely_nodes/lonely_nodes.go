@@ -1,6 +1,8 @@
 package lonely_nodes
 
-import "github.com/ashtanko/go-algorithms/ds/tree"
+import (
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
+)
 
 func getLonelyNodes(root *tree.TreeNode) []int {
 	return dfs(root, nil)

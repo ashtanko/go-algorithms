@@ -1,6 +1,8 @@
 package sum_numbers
 
-import "github.com/ashtanko/go-algorithms/ds/tree"
+import (
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
+)
 
 // 129. Sum Root to Leaf Numbers
 func sumNumbersDFS(root *tree.TreeNode) int {

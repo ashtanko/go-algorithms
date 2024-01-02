@@ -1,7 +1,7 @@
 package level_order
 
 import (
-	"github.com/ashtanko/go-algorithms/ds/tree"
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
 )
 
 func levelOrder(root *tree.TreeNode) [][]int {

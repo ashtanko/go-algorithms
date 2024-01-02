@@ -1,7 +1,7 @@
 package add_two_numbers
 
 import (
-	. "github.com/ashtanko/go-algorithms/ds/linked_list"
+	. "github.com/ashtanko/go-algorithms/internal/ds/linked_list"
 )
 
 // Function to add two numbers represented as linked lists.

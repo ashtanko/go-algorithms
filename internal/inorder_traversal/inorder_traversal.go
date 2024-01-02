@@ -1,6 +1,8 @@
 package inorder_traversal
 
-import "github.com/ashtanko/go-algorithms/ds/tree"
+import (
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
+)
 
 func inorderTraversal(root *tree.TreeNode) []int {
 	var (

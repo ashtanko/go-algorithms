@@ -1,6 +1,8 @@
 package partition_list
 
-import . "github.com/ashtanko/go-algorithms/ds/linked_list"
+import (
+	. "github.com/ashtanko/go-algorithms/internal/ds/linked_list"
+)
 
 func partition(head *ListNode, x int) *ListNode {
 	cur := head

@@ -1,6 +1,8 @@
 package validate_bst
 
-import "github.com/ashtanko/go-algorithms/ds/tree"
+import (
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
+)
 
 func isValidBST(root *tree.TreeNode) bool {
 	if root == nil {

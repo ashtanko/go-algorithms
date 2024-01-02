@@ -1,7 +1,7 @@
 package delete_nodes
 
 import (
-	. "github.com/ashtanko/go-algorithms/ds/linked_list"
+	. "github.com/ashtanko/go-algorithms/internal/ds/linked_list"
 )
 
 func deleteNodes(head *ListNode, m int, n int) *ListNode {

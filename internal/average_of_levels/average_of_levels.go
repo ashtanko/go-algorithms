@@ -1,7 +1,7 @@
 package average_of_levels
 
 import (
-	"github.com/ashtanko/go-algorithms/ds/tree"
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
 )
 
 // averageOfLevels calculates the average value of each level in a binary tree
