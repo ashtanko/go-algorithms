@@ -5,15 +5,15 @@ import "strconv"
 func getPermutation(n int, k int) string {
 	res, str := "", ""
 	visited := make(map[int]bool)
-	backTrack(n, &k, visited, str, &res)
+	backtrack(n, &k, visited, str, &res)
 	return res
 }
 
-func backTrack(n int, k *int, visited map[int]bool, str string, res *string) {
-	if len(str) == n {
+func backtrack(n int, k *int, visited map[int]bool, current string, result *string) {
+	if len(current) == n {
 		*k--
 		if *k == 0 { // k == 0 means find the answer
-			*res = str
+			*result = current
 			return
 		}
 	}
@@ -23,27 +23,25 @@ func backTrack(n int, k *int, visited map[int]bool, str string, res *string) {
 			continue
 		}
 
-		if f(n-len(str)-1) < *k {
-			*k -= f(n - len(str) - 1) // if the number of permutations is less than k, we can substract the number from k directly
+		if factorial(n-len(current)-1) < *k {
+			*k -= factorial(n - len(current) - 1)
 			continue
 		}
-		str = str + strconv.Itoa(i)
+		current = current + strconv.Itoa(i)
 		visited[i] = true
-		backTrack(n, k, visited, str, res)
-		if *res != "" {
+		backtrack(n, k, visited, current, result)
+		if *result != "" {
 			return
 		}
 		visited[i] = false
-		str = str[:len(str)-1]
-
+		current = current[:len(current)-1]
 	}
-
 }
 
-func f(n int) int {
-	res := 1
+func factorial(n int) int {
+	result := 1
 	for i := n; i > 1; i-- {
-		res *= i
+		result *= i
 	}
-	return res
+	return result
 }

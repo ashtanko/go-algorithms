@@ -5,25 +5,25 @@ import (
 )
 
 func partition(head *ListNode, x int) *ListNode {
-	cur := head
-	var l1 []int
-	var l2 []int
-	for cur != nil {
-		v := cur.Val
-		if v < x {
-			l1 = append(l1, v)
+	current := head
+	var lessThanX []int
+	var greaterOrEqualX []int
+	for current != nil {
+		value := current.Val
+		if value < x {
+			lessThanX = append(lessThanX, value)
 		} else {
-			l2 = append(l2, v)
+			greaterOrEqualX = append(greaterOrEqualX, value)
 		}
-		cur = cur.Next
+		current = current.Next
 	}
-	l := append(l1, l2...)
-	t := 0
-	curr := head
-	for curr != nil {
-		curr.Val = l[t]
-		t++
-		curr = curr.Next
+	combined := append(lessThanX, greaterOrEqualX...)
+	index := 0
+	current = head
+	for current != nil {
+		current.Val = combined[index]
+		index++
+		current = current.Next
 	}
 	return head
 }
