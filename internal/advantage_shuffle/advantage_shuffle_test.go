@@ -2,9 +2,10 @@ package advantage_shuffle
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestAdvantageShuffle(t *testing.T) {

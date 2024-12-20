@@ -2,9 +2,10 @@ package min_rotated_sorted_array
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestFindMinRotatedSorted(t *testing.T) {

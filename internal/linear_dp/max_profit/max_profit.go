@@ -1,18 +1,18 @@
 package max_profit
 
 func maxProfit(prices []int) int {
-	min, profit := 0, 0
+	minValue, profit := 0, 0
 	for i, price := range prices {
 		if i == 0 {
-			min = price
+			minValue = price
 			continue
 		}
 
-		if diff := price - min; diff > profit {
+		if diff := price - minValue; diff > profit {
 			profit = diff
 		}
-		if price < min {
-			min = price
+		if price < minValue {
+			minValue = price
 		}
 	}
 	return profit

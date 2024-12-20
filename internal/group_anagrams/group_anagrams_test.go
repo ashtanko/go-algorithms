@@ -2,8 +2,9 @@ package group_anagrams
 
 import (
 	"fmt"
-	"github.com/ashtanko/go-algorithms/utils"
 	"testing"
+
+	"github.com/ashtanko/go-algorithms/utils"
 )
 
 var (

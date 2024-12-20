@@ -2,10 +2,11 @@ package swap_pairs
 
 import (
 	"fmt"
+	"testing"
+
 	. "github.com/ashtanko/go-algorithms/internal/ds/linked_list"
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestSwapPairs(t *testing.T) {

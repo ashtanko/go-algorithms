@@ -2,9 +2,10 @@ package word_break
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 type testCase struct {

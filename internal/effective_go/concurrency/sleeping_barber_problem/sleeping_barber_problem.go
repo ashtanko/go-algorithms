@@ -17,11 +17,11 @@ var stateLog = map[int]string{
 	1: "Checking",
 	2: "Cutting",
 }
-var wg *sync.WaitGroup // Amount of potentional customers
+var wg *sync.WaitGroup // Amount of potential customers
 
 type Barber struct {
-	name string
-	sync.Mutex
+	name     string
+	mutex    sync.Mutex
 	state    int // Sleeping/Checking/Cutting
 	customer *Customer
 }
@@ -46,7 +46,7 @@ func NewBarber() (b *Barber) {
 // Sleeps - wait for wakes to wake him up
 func barber(b *Barber, wr chan *Customer, wakes chan *Customer) {
 	for {
-		b.Lock()
+		b.mutex.Lock()
 		// defer b.Unlock()
 		b.state = checking
 		b.customer = nil
@@ -57,17 +57,17 @@ func barber(b *Barber, wr chan *Customer, wakes chan *Customer) {
 		select {
 		case c := <-wr:
 			HairCut(c, b)
-			b.Unlock()
+			b.mutex.Unlock()
 		default: // Waiting room is empty
 			fmt.Printf("Sleeping Barber - %s\n", b.customer)
 			b.state = sleeping
 			b.customer = nil
-			b.Unlock()
+			b.mutex.Unlock()
 			c := <-wakes
-			b.Lock()
+			b.mutex.Lock()
 			fmt.Printf("Woken by %s\n", c)
 			HairCut(c, b)
-			b.Unlock()
+			b.mutex.Unlock()
 		}
 	}
 }
@@ -75,10 +75,10 @@ func barber(b *Barber, wr chan *Customer, wakes chan *Customer) {
 func HairCut(c *Customer, b *Barber) {
 	b.state = cutting
 	b.customer = c
-	b.Unlock()
+	b.mutex.Unlock()
 	fmt.Printf("Cutting  %s hair\n", c)
 	time.Sleep(time.Millisecond * 100)
-	b.Lock()
+	b.mutex.Lock()
 	wg.Done()
 	b.customer = nil
 }
@@ -90,7 +90,7 @@ func customer(c *Customer, b *Barber, wr chan<- *Customer, wakers chan<- *Custom
 	// arrive
 	time.Sleep(time.Millisecond * 50)
 	// Check on barber
-	b.Lock()
+	b.mutex.Lock()
 	fmt.Printf("Customer %s checks %s barber | room: %d, w %d - customer: %s\n",
 		c, stateLog[b.state], len(wr), len(wakers), b.customer)
 	switch b.state {
@@ -113,7 +113,7 @@ func customer(c *Customer, b *Barber, wr chan<- *Customer, wakers chan<- *Custom
 	case checking:
 		panic("Customer shouldn't check for the Barber when Barber is Checking the waiting room")
 	}
-	b.Unlock()
+	b.mutex.Unlock()
 }
 
 func main() {

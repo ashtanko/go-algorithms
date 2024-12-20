@@ -1,8 +1,9 @@
 package min_sub_array_len
 
 import (
-	"github.com/ashtanko/go-algorithms/utils"
 	"math"
+
+	"github.com/ashtanko/go-algorithms/utils"
 )
 
 func minSubArrayLen(target int, nums []int) int {

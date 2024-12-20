@@ -40,6 +40,7 @@ func diningProblem(phName string, dominantHand, otherHand *sync.Mutex) {
 		fmt.Printf("Error to write %s", phName)
 		return
 	}
+	//nolint:all
 	rg := rand.New(rand.NewSource(int64(h.Sum64())))
 	rSleep := func(t time.Duration) {
 		time.Sleep(t/2 + time.Duration(rg.Int63n(int64(t))))

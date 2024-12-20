@@ -2,9 +2,10 @@ package reordered_power_of_two
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestReorderedPowerOfTwo(t *testing.T) {

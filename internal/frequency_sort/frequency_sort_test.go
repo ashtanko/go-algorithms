@@ -2,9 +2,10 @@ package frequency_sort
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestFrequencySort(t *testing.T) {

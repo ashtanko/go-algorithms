@@ -1,9 +1,10 @@
 package strobogrammatic
 
 import (
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestStrobogrammaticNumber(t *testing.T) {

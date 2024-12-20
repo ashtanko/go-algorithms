@@ -2,8 +2,9 @@ package maximum_69_number
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMaximum69Number(t *testing.T) {

@@ -2,10 +2,11 @@ package average_of_levels
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/internal/ds/tree"
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestAverageOfLevels(t *testing.T) {

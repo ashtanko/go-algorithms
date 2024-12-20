@@ -2,8 +2,9 @@ package sort_characters_by_frequency
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFrequencySort(t *testing.T) {

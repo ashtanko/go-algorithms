@@ -2,8 +2,9 @@ package sum_numbers
 
 import (
 	"fmt"
-	"github.com/ashtanko/go-algorithms/internal/ds/tree"
 	"testing"
+
+	"github.com/ashtanko/go-algorithms/internal/ds/tree"
 )
 
 var (

@@ -2,9 +2,10 @@ package num_factored_b_trees
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestBinaryTreesWithFactors(t *testing.T) {

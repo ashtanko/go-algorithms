@@ -1,9 +1,10 @@
 package deque
 
 import (
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	assert2 "gotest.tools/v3/assert"
-	"testing"
 )
 
 func TestNewDeque(t *testing.T) {

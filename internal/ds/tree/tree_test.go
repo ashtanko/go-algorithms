@@ -2,10 +2,11 @@ package tree
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestTreeSize(t *testing.T) {

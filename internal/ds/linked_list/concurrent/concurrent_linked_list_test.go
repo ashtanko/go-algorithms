@@ -2,9 +2,10 @@ package concurrent_linked_list
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"sync"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestConcurrentLinkedList_IsEmpty(t *testing.T) {

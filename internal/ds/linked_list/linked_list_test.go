@@ -1,10 +1,11 @@
 package linked_list
 
 import (
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	"github.com/stretchr/testify/assert"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestFromToSlice(t *testing.T) {

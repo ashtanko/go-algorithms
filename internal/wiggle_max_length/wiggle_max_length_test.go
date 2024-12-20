@@ -2,9 +2,10 @@ package wiggle_max_length
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestWiggleMaxLength(t *testing.T) {

@@ -40,7 +40,8 @@ type Table struct {
 func arbitrate(t *Table, smokers [3]chan int) {
 	for {
 		time.Sleep(time.Millisecond * 500) // Simulate time between selections.
-		next := rand.Intn(3)               // Randomly select an item to place on the table.
+		//nolint:all
+		next := rand.Intn(3) // Randomly select an item to place on the table.
 		fmt.Printf("Table chooses %s: %s\n", smokeMap[next], names[next])
 		switch next {
 		case paper:

@@ -251,7 +251,7 @@ func processBulk(r io.Reader, h func([]string) error) error {
 			bulk[i] = text
 			i++
 			if i == l {
-				copied := make([]string, l, l)
+				copied := make([]string, l)
 				copy(copied, bulk)
 				i = 0
 				input <- copied

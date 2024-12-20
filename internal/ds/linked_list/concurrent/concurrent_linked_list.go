@@ -41,7 +41,7 @@ func (cll *ConcurrentLinkedList) Insert(i int, t interface{}) error {
 	defer cll.lock.Unlock()
 
 	if i < 0 || i > cll.size {
-		return fmt.Errorf("Index out of bounds %g", t)
+		return fmt.Errorf("index out of bounds %g", t)
 	}
 	nodeToAdd := &ConcurrentNode{t, nil}
 	if i == 0 {

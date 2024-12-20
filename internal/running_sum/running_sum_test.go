@@ -2,9 +2,10 @@ package running_sum
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestRunningSum(t *testing.T) {

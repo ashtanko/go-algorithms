@@ -2,21 +2,20 @@ package koko_eating_bananas
 
 // 875. Koko Eating Bananas
 // https://leetcode.com/problems/koko-eating-bananas/description/
-func minEatingSpeed(piles []int, h int) int {
-	l := 1
-	r := 1000000000
-	for l < r {
-		m := (l + r) / 2
-		total := 0
-		for i := range piles {
-			p := piles[i]
-			total += (p + m - 1) / m
+func minEatingSpeed(piles []int, hours int) int {
+	left := 1
+	right := 1000000000
+	for left < right {
+		mid := (left + right) / 2
+		totalHours := 0
+		for _, pile := range piles {
+			totalHours += (pile + mid - 1) / mid
 		}
-		if total > h {
-			l = m + 1
+		if totalHours > hours {
+			left = mid + 1
 		} else {
-			r = m
+			right = mid
 		}
 	}
-	return l
+	return left
 }

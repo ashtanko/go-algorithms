@@ -2,9 +2,10 @@ package min_cost_climbing_stairs
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestClimbingStairs(t *testing.T) {

@@ -10,7 +10,8 @@ import (
 // worker simulates a part of an assembly process. It logs the start and completion of its work,
 // sleeps for a random duration to mimic processing time, and signals the wait group upon completion.
 func worker(part string) {
-	log.Println(part, "worker begins part")     // Log the start of the work.
+	log.Println(part, "worker begins part") // Log the start of the work.
+	//nolint:all
 	time.Sleep(time.Duration(rand.Int63n(1e6))) // Simulate work by sleeping.
 	log.Println(part, "worker completes part")  // Log the completion of the work.
 	wg.Done()                                   // Signal the wait group that this worker has completed its work.

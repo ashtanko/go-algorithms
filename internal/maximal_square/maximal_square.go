@@ -1,8 +1,9 @@
 package maximal_square
 
 import (
-	"github.com/ashtanko/go-algorithms/utils"
 	"strconv"
+
+	"github.com/ashtanko/go-algorithms/utils"
 )
 
 // https://leetcode.com/problems/maximal-square/

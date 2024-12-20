@@ -2,9 +2,10 @@ package koko_eating_bananas
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/ashtanko/go-algorithms/utils"
 	is "gotest.tools/v3/assert/cmp"
-	"testing"
 )
 
 func TestMinEatingSpeed(t *testing.T) {
